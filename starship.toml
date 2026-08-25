@@ -17,6 +17,7 @@ $julia\
 $nodejs\
 $nim\
 $rust\
+$typst\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 [](fg:#06969A bg:#33658A)\
@@ -136,3 +137,36 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
 format = '[ $time ]($style)'
+
+[typst]
+disabled = false
+symbol = 't '
+style = 'bold #0093A7'
+detect_extensions = ['.typ']
+version_format = 'v${raw}'
+format = '[ $symbol ($version) ]($style)'
+
+# Configure the custom weather module
+#[custom.weather]
+#when = "true"                                 # Always show this module
+##interval = 900                                # Update every 15 minutes (in seconds)
+#symbol = ""                                   # Optional symbol
+#style = "bg:#33658A"                         # Style the module
+#format = "[$output]($style)"  
+#command = "curl -s 'wttr.in?format=%c%t'"     # Command to fetch weather information (icon and temperature)
+
+[custom.filecounter]
+command = "ls -A | wc -l"              # Command to count the number of files in the current directory
+when = "true"                                 # Always show this module
+#interval = 60                               # Update every hour (in seconds)
+symbol = "📁 "                                  # Optional symbol (folder icon)
+style = "bg:#33658A"                         # Style the module
+format = "[ $symbol$output ]($style)"           # Format the output with the symbol and
+
+[custom.random]
+command = "bash ~/BashProjects/UsefulBashScripts/starshipRandomizer.sh"              # Command to fetch a random quote
+when = "true"                                 # Always show this module
+#interval = 60                               # Update every hour (in seconds)
+symbol = "❝"                                  # Optional symbol (opening quotation mark)
+style = "bg:#33658A"                         # Style the module
+format = "[ $symbol$output❞]($style)"           # Format the output with the symbol and style
